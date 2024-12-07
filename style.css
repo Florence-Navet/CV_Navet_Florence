@@ -154,6 +154,9 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .contact p {
+        font-size: 0.9rem; /* Réduit légèrement la taille de la police */
+    }
     .cv-container {
         flex-direction: column;
     }
