@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+    padding: 2rem;
+}
+
+.cv-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    background: #161616;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(183, 75, 75, 0.5);
+    overflow: hidden;
+}
+
+.left-section {
+    width: 30%;
+    background: #1f1f1f;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.left-section .photo {
+    height: 240px;
+     /* Définir une hauteur pour le parent */
+}
+
+.left-section .photo img {
+    width: 100%;
+    height: 100%; /* Réduction de la hauteur à 150px */
+    border-radius: 1rem;
+    object-fit: cover;
+    border: 3px solid #b74b4b;
+}
+
+.left-section h2 {
+    color: #b74b4b;
+    margin-bottom: 1rem;
+}
+
+.left-section p, 
+.left-section li {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.left-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.right-section {
+    width: 70%;
+    padding: 2rem;
+}
+.skills ul {
+    display: flex; /* Utiliser Flexbox pour aligner horizontalement */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    gap: 1rem; /* Espacer les icônes entre elles */
+    padding-left: 0; /* Enlever le padding par défaut de la liste */
+    list-style: none; /* Enlever les puces de la liste */
+}
+
+.skills li {
+    display: flex;
+    justify-content: center; /* Centrer l'icône à l'intérieur de chaque élément de liste */
+    align-items: center; /* Centrer verticalement l'icône */
+}
+
+.skills i.fa-brands {
+    color: #b74b4b; /* Remplacez par la couleur de votre choix */
+    font-size: 2rem; /* Taille des icônes, ajustez si nécessaire */
+}
+.skills i.fa-solid {
+    color: #4b98b7; /* couleur pour les fa-solid */
+}
+
+
+
+.right-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.right-section h3 {
+    color: #b74b4b;
+    margin-bottom: 2rem;
+}
+
+.right-section h2 {
+    font-size: 1.8rem;
+    color: #b74b4b;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #b74b4b;
+    display: inline-block;
+}
+
+.right-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.experience-item, 
+.education-item {
+    margin-bottom: 1.5rem;
+}
+
+.experience-item h3, 
+.education-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #b74b4b;
+}
+
+.experience-item span, 
+.education-item span {
+    display: block;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cv-container {
+        flex-direction: column;
+    }
+
+    .left-section, 
+    .right-section {
+        width: 100%;
+    }
+    .left-section .photo {
+        height: 135px;
+         /* Définir une hauteur pour le parent */
+    }
+    
+    .left-section .photo img {
+        width: 100%;
+        height: 100%; /* Réduction de la hauteur à 150px */
+        border-radius: 1rem;
+        object-fit: cover;
+        border: 3px solid #b74b4b;
+    }
+
+    .left-section .photo img {
+        max-width: 150px;
+        margin: auto;
+    }
+    .skills ul, li {
+        justify-content: flex-start;
+    }
+    
+}
