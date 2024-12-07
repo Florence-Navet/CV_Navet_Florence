@@ -76,12 +76,13 @@ body {
 .skills li {
     display: flex;
     justify-content: center; /* Centrer l'icône à l'intérieur de chaque élément de liste */
-    align-items: center; /* Centrer verticalement l'icône */
+    align-items: center;
+    flex-wrap:wrap; /* Centrer verticalement l'icône */
 }
 
 .skills i.fa-brands {
     color: #b74b4b; /* Remplacez par la couleur de votre choix */
-    font-size: 2rem; /* Taille des icônes, ajustez si nécessaire */
+    font-size: 1rem; /* Taille des icônes, ajustez si nécessaire */
 }
 .skills i.fa-solid {
     color: #4b98b7; /* couleur pour les fa-solid */
@@ -131,6 +132,25 @@ body {
     font-size: 0.9rem;
     color: #aaa;
 }
+#download-pdf {
+    display: block;
+    margin: 2rem auto; /* Centré horizontalement */
+    padding: 0.8rem 2rem; /* Espace interne */
+    background: #b74b4b; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    font-size: 1rem; /* Taille du texte */
+    font-weight: 500; /* Épaisseur de texte */
+    border: none; /* Pas de bordure */
+    border-radius: 0.5rem; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: background-color 0.3s ease; /* Animation douce */
+}
+
+/* Effet au survol */
+#download-pdf:hover {
+    background: #a33f3f; /* Couleur légèrement plus foncée au survol */
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

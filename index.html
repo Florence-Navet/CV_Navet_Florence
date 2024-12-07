@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CV - Nom Prénom</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <div class="cv-container">
+    <div class="cv-container" id="cv-content">
         <div class="left-section">
             <div class="photo">
-                <img src="./img/photo_profil.jpg" alt="Photo de profil">
+                <img src="./img/photo_profil.jpg" alt="Photo de profil" />
             </div>
             <div class="contact">
                 <h2>Contact</h2>
                 <p><i class="fa-solid fa-envelope"></i> florence.navet@laplateforme.io</p>
-                <p><i class="fa-solid fa-phone"></i> +33 6 63 14 50 58</p> 
-                <p><i class="fa-solid fa-location-dot"></i> Marseille, 2éme</p>
+                <p><i class="fa-solid fa-phone"></i> +33 6 63 14 50 58</p>
+                <p><i class="fa-solid fa-location-dot"></i> Marseille, 2ème</p>
             </div>
             <div class="skills">
                 <h2>Compétences</h2>
                 <ul>
-                    <li><i class="fa-brands fa-html5"></i></li>
-                    <li><i class="fa-brands fa-css3-alt"></i></li>
-                    <li><i class="fa-brands fa-python"></i></li>
-                    <li><i class="fa-brands fa-js"></i></li>
-                    <li><i class="fa-solid fa-desktop">VmWare</i></li>
+                    <li><i class="fa-brands fa-html5"></i> HTML</li>
+                    <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+                    <li><i class="fa-brands fa-python"></i> Python</li>
+                    <li><i class="fa-brands fa-js"></i> JavaScript</li>
+                    <li><i class="fa-solid fa-desktop"></i> VMWare</li>
                 </ul>
             </div>
         </div>
@@ -36,7 +37,7 @@
             <h3>Développeur logiciel, recherche alternance</h3>
             <div class="about">
                 <h2>À propos de moi</h2>
-                <p>Développeur passionné par le developpement, toujours à la recherche de nouveaux défis et d'opportunités d'apprentissage.</p>
+                <p>Développeur passionné par le développement, toujours à la recherche de nouveaux défis et d'opportunités d'apprentissage.</p>
             </div>
             <div class="experience">
                 <h2>Expérience professionnelle</h2>
@@ -55,11 +56,37 @@
                 <h2>Formations</h2>
                 <div class="education-item">
                     <h3>Bachelor I.T - 1ère année</h3>
-                    <p>La plateforme Marseille</p>
+                    <p>La Plateforme Marseille</p>
                     <span>en cours</span>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Bouton Télécharger en PDF -->
+    <button id="download-pdf" style="margin: 20px auto; display: block; padding: 10px 20px; background: #b74b4b; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Télécharger en PDF
+    </button>
+
+    <script>
+        document.getElementById('download-pdf').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const cvContent = document.getElementById('cv-content');
+
+            // Créer une nouvelle instance de jsPDF
+            const pdf = new jsPDF();
+
+            // Utiliser html2canvas pour capturer le contenu HTML en image
+            html2canvas(cvContent).then(canvas => {
+                // Convertir l'image en format PDF
+                const imgData = canvas.toDataURL('image/png');
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('cv_navet_florence.pdf');
+            });
+        });
+    </script>
 </body>
 </html>
