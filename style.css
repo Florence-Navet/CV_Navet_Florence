@@ -181,6 +181,7 @@ body {
     }
     .skills ul, li {
         justify-content: flex-start;
+        flex-wrap: wrap;
     }
     
 }
