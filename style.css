@@ -16,8 +16,9 @@ body {
 .cv-container {
   display: flex;
   gap: 2rem;
-  width: 210mm; /* Largeur d'une feuille A4 */
-  height: 297mm; /* Hauteur d'une feuille A4 */
+  width: 100%;
+  max-width: 210mm;
+  height: auto;
   margin: auto;
   background: #161616;
   border-radius: 1rem;
@@ -26,104 +27,60 @@ body {
 }
 
 .left-section {
-  width: 35%; /* Augmente légèrement la largeur de la partie gauche */
+  width: 35%;
   background: #1f1f1f;
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
 .left-section .photo {
-  height: 240px;
+  width: 80%; /* Ajuste la largeur pour rendre l'image plus petite */
+  padding-top: 80%; /* Réduit la taille de l'image tout en conservant un ratio carré */
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto; /* Centrer l'image */
 }
 
 .left-section .photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 1rem;
   object-fit: cover;
+  border-radius: 1rem;
   border: 3px solid #b74b4b;
 }
 
 .left-section h2 {
   color: #b74b4b;
-  margin-bottom: 1rem;
 }
 
-.left-section p,
-.left-section li {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.left-section ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.skills ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 1rem;
-  list-style: none;
-  padding-left: 0;
-}
-
-.skills li {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.skills i.fa-brands {
-  color: #b74b4b;
-  font-size: 1rem;
-}
-
-.skills i.fa-solid {
-  color: #4b98b7;
-}
-
-.softskills,
-.centre_interet {
-  margin-top: 1rem;
-}
-
-.softskills h2,
-.centre_interet h2 {
-  color: #b74b4b;
-  margin-bottom: 0.5rem;
-}
-
+.skills ul,
 .softskills ul,
 .centre_interet ul {
   list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.softskills li,
-.centre_interet li {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  line-height: 1.5;
+  padding: 0;
 }
 
 .right-section {
-  width: 65%; /* Ajuste la largeur de la partie droite */
-  padding: 2rem;
+  width: 65%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .right-section h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .right-section h3 {
   color: #b74b4b;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
 }
 
 .right-section h2 {
@@ -134,33 +91,33 @@ body {
   display: inline-block;
 }
 
-.right-section p {
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-.experience-item,
-.education-item {
-  margin-bottom: 1.5rem;
+/* Ajouter un espacement entre h3 et p */
+.right-section h3 + p {
+  margin-top: 1rem;
 }
 
 .experience-item h3,
 .education-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #b74b4b;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
 }
 
 .experience-item span,
 .education-item span {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #aaa;
 }
 
+ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
 #download-pdf {
-  display: block;
+  display: flex;
+  justify-content: center;
   margin: 2rem auto;
   padding: 0.8rem 2rem;
   background: #b74b4b;
@@ -182,8 +139,9 @@ body {
 @media (max-width: 768px) {
   .cv-container {
     flex-direction: column;
-    width: 100%; /* Ajustement pour mobile */
-    height: auto; /* Suppression de la hauteur fixe */
+    width: 100%;
+    max-width: none;
+    height: auto;
   }
 
   .left-section,
@@ -192,20 +150,18 @@ body {
   }
 
   .left-section .photo {
-    height: 135px;
+    padding-top: 80%; /* Garder un ratio carré tout en réduisant la taille */
   }
 
   .left-section .photo img {
     width: 100%;
     height: 100%;
-    border-radius: 1rem;
     object-fit: cover;
+    border-radius: 1rem;
     border: 3px solid #b74b4b;
   }
 
-  .skills ul,
-  .skills li {
-    justify-content: flex-start;
-    flex-wrap: wrap;
+  .right-section {
+    padding: 1.5rem;
   }
 }
