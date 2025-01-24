@@ -24,7 +24,7 @@
             <i class="fa-solid fa-envelope"></i> florence.navet@laplateforme.io
           </p>
           <p><i class="fa-solid fa-phone"></i> +33 6 63 14 50 58</p>
-          <p><i class="fa-solid fa-location-dot"></i>Toulon</p>
+          <p><i class="fa-solid fa-location-dot"></i> Toulon</p>
           <p>
             <a
               href="https://github.com/Florence-Navet"
@@ -45,7 +45,26 @@
             <li><i class="fa-solid fa-desktop"></i> VMWare</li>
           </ul>
         </div>
+        <div class="softskills">
+          <h2>Soft Skills</h2>
+          <ul>
+            <li>Travail en équipe</li>
+            <li>Résolution de problèmes</li>
+            <li>Créativité</li>
+            <li>Adaptabilité</li>
+          </ul>
+        </div>
+        <div class="centre_interet">
+          <h2>Centre d'intérêt</h2>
+          <ul>
+            <li>Lecture</li>
+            <li>Développement personnel</li>
+            <li>Jeux vidéo</li>
+            <li>Voyages</li>
+          </ul>
+        </div>
       </div>
+
       <div class="right-section">
         <h1>Navet Florence</h1>
         <h3>Développeur logiciel, recherche alternance</h3>
@@ -81,21 +100,7 @@
     </div>
 
     <!-- Bouton Télécharger en PDF -->
-    <button
-      id="download-pdf"
-      style="
-        margin: 20px auto;
-        display: block;
-        padding: 10px 20px;
-        background: #b74b4b;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      "
-    >
-      Télécharger en PDF
-    </button>
+    <button id="download-pdf">Télécharger en PDF</button>
 
     <script>
       document
@@ -104,12 +109,8 @@
           const { jsPDF } = window.jspdf;
           const cvContent = document.getElementById("cv-content");
 
-          // Créer une nouvelle instance de jsPDF
           const pdf = new jsPDF();
-
-          // Utiliser html2canvas pour capturer le contenu HTML en image
           html2canvas(cvContent).then((canvas) => {
-            // Convertir l'image en format PDF
             const imgData = canvas.toDataURL("image/png");
             const imgProps = pdf.getImageProperties(imgData);
             const pdfWidth = pdf.internal.pageSize.getWidth();
