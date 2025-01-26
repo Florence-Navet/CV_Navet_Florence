@@ -8,15 +8,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
     <link rel="stylesheet" href="./style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  </head>
-  <body>
   </head>
   <body>
     <div class="cv-container" id="cv-content">
@@ -68,114 +62,7 @@
             <li>Créations site, serveurs discord...</li>
             <li>Création chaîne YouTube, Instagram</li>
           </ul>
-      <div class="left-section">
-        <div class="photo">
-          <img src="./img/photo_profil.jpg" alt="Photo de profil" />
         </div>
-        <div class="contact">
-          <h2>Contact</h2>
-          <p>
-            <i class="fa-solid fa-envelope"></i> florence.navet@laplateforme.io
-          </p>
-          <p><i class="fa-solid fa-phone"></i> +33 6 63 14 50 58</p>
-          <p><i class="fa-solid fa-location-dot"></i> Toulon</p>
-          <p>
-            <a
-              href="https://github.com/Florence-Navet"
-              target="_blank"
-              style="text-decoration: none; color: inherit"
-            >
-              <i class="fa-brands fa-github"></i> Github
-            </a>
-          </p>
-        </div>
-        <div class="skills">
-          <h2>Compétences</h2>
-          <ul>
-            <li><i class="fa-brands fa-html5"></i> HTML</li>
-            <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
-            <li><i class="fa-brands fa-python"></i> Python</li>
-            <li><i class="fa-brands fa-js"></i> JavaScript</li>
-            <li><i class="fa-solid fa-desktop"></i> VMWare</li>
-          </ul>
-        </div>
-        <div class="softskills">
-          <h2>Soft Skills</h2>
-          <ul>
-            <li>Rigueur</li>
-            <li>Adaptabilité</li>
-            <li>Autonomie</li>
-            <li>Réactivité</li>
-          </ul>
-        </div>
-        <div class="centre_interet">
-          <h2>Centres d'intérêt</h2>
-          <ul>
-            <li>Animes japonais et Dramas coréens</li>
-            <li>Sous-titrages et encodage vidéo</li>
-            <li>Créations site, serveurs discord...</li>
-            <li>Création chaîne YouTube, Instagram</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="right-section">
-        <h1>Navet Florence</h1>
-        <h3>Développeur logiciel, en recherche alternance pour deux ans</h3>
-        <div class="about">
-          <h2>À propos de moi</h2>
-          <p>
-            Après 11 ans dans la Marine Nationale et en reconversion
-            professionnelle, je suis à la recherche d’une alternance pour deux
-            ans en tant que développeur logiciel/web.
-          </p>
-        </div>
-        <div class="experience">
-          <h2>Expérience professionnelle</h2>
-          <div class="experience-item">
-            <h3>La Plateforme <span>Octobre 2024 - actuel</span></h3>
-            <p>Bachelor IT</p>
-          </div>
-          <div class="experience-item">
-            <h3>
-              Auxiliaire de vie <span>Septembre 2008 - Septembre 2023</span>
-            </h3>
-            <ul>
-              <li>Accompagnement des personnes âgées</li>
-              <li>Gestion quotidienne des besoins individuels</li>
-              <li>Planification et organisation des tâches</li>
-            </ul>
-          </div>
-          <div class="experience-item">
-            <h3>Marine Nationale <span>2008 - 2019</span></h3>
-            <ul>
-              <li>Encadrement des équipes</li>
-              <li>Interventions en conditions complexes</li>
-              <li>Gestion administrative et opérationnelle</li>
-            </ul>
-          </div>
-        </div>
-        <div class="education">
-          <h2>Formations</h2>
-          <div class="education-item">
-            <h3>Association Varsef <span>2023</span></h3>
-            <p>Auxiliaire de vie</p>
-          </div>
-          <div class="education-item">
-            <h3>Eva Giraud Formation <span>2022</span></h3>
-            <ul>
-              <li>Formation spécialisée</li>
-            </ul>
-          </div>
-          <div class="education-item">
-            <h3>Bexter et Inclu Pro <span>2021</span></h3>
-            <ul>
-              <li>Ateliers pratiques</li>
-              <li>Certifications en développement</li>
-            </ul>
-          </div>
-        </div>
-      </div>
       </div>
 
       <div class="right-section">
@@ -239,7 +126,6 @@
 
     <!-- Bouton Télécharger en PDF -->
     <button id="download-pdf">Télécharger en PDF</button>
-    <button id="download-pdf">Télécharger en PDF</button>
 
     <script>
       document
@@ -247,21 +133,7 @@
         .addEventListener("click", function () {
           const { jsPDF } = window.jspdf;
           const cvContent = document.getElementById("cv-content");
-      document
-        .getElementById("download-pdf")
-        .addEventListener("click", function () {
-          const { jsPDF } = window.jspdf;
-          const cvContent = document.getElementById("cv-content");
 
-          const pdf = new jsPDF();
-          html2canvas(cvContent).then((canvas) => {
-            const imgData = canvas.toDataURL("image/png");
-            const imgProps = pdf.getImageProperties(imgData);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-            pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-            pdf.save("cv_navet_florence.pdf");
-          });
           const pdf = new jsPDF();
           html2canvas(cvContent).then((canvas) => {
             const imgData = canvas.toDataURL("image/png");
@@ -273,6 +145,5 @@
           });
         });
     </script>
-  </body>
   </body>
 </html>
